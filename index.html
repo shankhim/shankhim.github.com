@@ -25,20 +25,21 @@
 		
 	function check(a){
 	  var b = '.' + a;
-	  $(b).slideUp('fast', function(){
+	  $(b).fadeTo('slow', 0.25);
+	  $(b).slideDown('slow').insertAfter('.done');
 	    $(b).find('img').attr('src', 'jquery/images/form-check-on.png');
 	  $(b).find('a:first').attr('href', 'javascript:uncheck(' + a + ');');
-	  });
-	  $(b).slideDown('slow').insertAfter('.done');
+	
 	  
 	}
 	
 	function uncheck(a){
 	  var b = '.' + a;
-	  $(b).slideUp('fast', function(){
+
 	    	  $(b).find('img').attr('src', 'jquery/images/form-check-off.png');
 	  $(b).find('a:first').attr('href', 'javascript:check('+ a +');');
-	  });
+
+	  $(b).fadeTo('slow', 1.00);
 	  $(b).slideDown('slow').insertAfter('.ongoing');
 
 	}
