@@ -1,10 +1,131 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Test</title>
-</head>
+  <head>
+	<!-- Change this if you want to allow scaling -->
+    <meta name="viewport" content="width=default-width; user-scalable=no" />
 
-<body>
-<h1>Test</h1>
-</body>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <title>Notes</title>
+	
+	<!-- iPad/iPhone specific css below, add after your main css >
+	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
+	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
+	-->
+	<!-- If you application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+
+
+	function preventBehavior(e) 
+	{ 
+      e.preventDefault(); 
+    }
+	
+
+	
+	function onBodyLoad()
+	{
+		document.addEventListener("deviceready",onDeviceReady,false);
+		//document.addEventListener("touchmove", preventBehavior, false);
+	}
+	
+	/* When this function is called, PhoneGap has been initialized and is ready to roll */
+	function onDeviceReady()
+	{
+		// do your thing!
+	}
+    
+    </script>
+    
+    
+        <link rel="stylesheet" href="jquery/jquery.mobile-1.0a3.min.css" />
+	<script type="text/javascript" src="jquery/jquery-1.5.1.js"></script>
+	<script type="text/javascript" src="jquery/jquery.mobile-1.0a3.min.js"></script>
+	
+	
+	<script type="text/javascript">
+		
+	function check(a){
+	  var b = '.' + a;
+	  $(b).slideUp('fast', function(){
+	    $(b).find('img').attr('src', 'jquery/images/form-check-on.png');
+	  $(b).find('a:first').attr('href', 'javascript:uncheck(' + a + ');');
+	  });
+	  $(b).slideDown('slow').insertAfter('.done');
+	  
+	}
+	
+	function uncheck(a){
+	  var b = '.' + a;
+	  $(b).slideUp('fast', function(){
+	    	  $(b).find('img').attr('src', 'jquery/images/form-check-off.png');
+	  $(b).find('a:first').attr('href', 'javascript:check('+ a +');');
+	  });
+	  $(b).slideDown('slow').insertAfter('.ongoing');
+
+	}
+
+$( function() {
+
+  $('.vanilla').bind( 'taphold', function( e ) {
+    alert( 'You tapped and held!' );
+    e.stopImmediatePropagation();
+    return false;
+  } );  
+
+  /*$('.note').bind( 'tap', function( e ) {
+    $('.note').clone().insertAfter('.done');
+    e.stopImmediatePropagation();
+    return false;
+  } );  */
+
+} );
+
+</script>
+    
+    
+  </head>
+  <body onload="onBodyLoad()">
+    
+<div data-role="page">
+
+	<div data-role="header" data-position="fixed" id="head">
+		<h1>Tasks</h1>
+		<a href="#" data-role="button" data-icon="plus" class="ui-btn-right" >Add</a>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<ul data-role="listview" data-filter="true" class="custom">
+		  <li data-role="list-divider" class="ongoing">Ongoing</li>
+		    <li class="1">
+		      <img src="jquery/images/check.png" class="ui-li-icon"/>
+		      First Note
+		      <a href="javascript:check('1');"></a>
+		      <a href="link" data-theme="c">Edit</a>
+		    </li>
+		    <li class='2'>
+		      <img src="jquery/images/check.png" class="ui-li-icon"/>
+		      Second Note
+		      <a href="javascript:check('2');"></a>
+		      <a href="link" data-theme="c">Edit</a>
+		    </li>
+		    <li data-role="list-divider" class="done">Done</li>
+		    <li class='3'>
+		      <img src="jquery/images/check.png" class="ui-li-icon"/>
+		      Third Note
+		      <a href="javascript:uncheck(3)"></a>
+		      <a href="link" data-theme="c">Edit</a>
+		    </li>
+		  
+		</ul>
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" >
+		<h4>Page Footer</h4>
+	</div><!-- /footer --> 
+</div><!-- /page -->
+  	
+  </body>
 </html>
