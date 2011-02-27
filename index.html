@@ -24,24 +24,17 @@
 	<script type="text/javascript">
 		
 	function check(a){
-	  var b = '.' + a;
-	  $(b).fadeTo('slow', 0.25);
-	  $(b).slideDown('slow').insertAfter('.done');
+	    var b = '.' + a;
+	    $(b).fadeTo(1000, 0.25).insertAfter('.done');
 	    $(b).find('img').attr('src', 'jquery/images/form-check-on.png');
-	  $(b).find('a:first').attr('href', 'javascript:uncheck(' + a + ');');
-	
-	  
+	    $(b).find('a:first').attr('href', 'javascript:uncheck(' + a + ');');
 	}
 	
 	function uncheck(a){
-	  var b = '.' + a;
-
-	    	  $(b).find('img').attr('src', 'jquery/images/form-check-off.png');
-	  $(b).find('a:first').attr('href', 'javascript:check('+ a +');');
-
-	  $(b).fadeTo('slow', 1.00);
-	  $(b).slideDown('slow').insertAfter('.ongoing');
-
+	    var b = '.' + a;
+	    $(b).fadeTo(1000, 1.00).insertAfter('.ongoing');
+	    $(b).find('img').attr('src', 'jquery/images/form-check-off.png');
+	    $(b).find('a:first').attr('href', 'javascript:check('+ a +');');
 	}
 
 $( function() {
