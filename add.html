@@ -6,7 +6,7 @@
 
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 
-    <title>Notes</title>
+    <title>Add</title>
 	
 	<!-- iPad/iPhone specific css below, add after your main css >
 	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
@@ -15,35 +15,26 @@
 	<!-- If you application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
     
     
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
+    
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
+	
 	
 	<script type="text/javascript">
 		
-	function check(a){
-	    var b = '.' + a;
-	    $(b).fadeTo(1000, 0.25).insertAfter('.done');
-	    $(b).find('img').attr('src', 'jquery/images/form-check-on.png');
-	    $(b).find('a:first').attr('href', 'javascript:uncheck(' + a + ');');
-	}
 	
-	function uncheck(a){
-	    var b = '.' + a;
-	    $(b).fadeTo(1000, 1.00).insertAfter('.ongoing');
-	    $(b).find('img').attr('src', 'jquery/images/form-check-off.png');
-	    $(b).find('a:first').attr('href', 'javascript:check('+ a +');');
-	}
 
-</script>
+
+        </script>
     
     
   </head>
-  <body>
+  <body onload="">
     
 <div data-role="page">
 
-	<div data-role="header" data-position="fixed">
+	<div data-role="header" data-position="fixed" id="head">
 		<h1>Tasks</h1>
 		<a href="add.html" data-rel="dialog" data-role="button" data-icon="plus" class="ui-btn-right" >Add</a>
 	</div><!-- /header -->
@@ -55,7 +46,7 @@
 		      <img src="jquery/images/check.png" class="ui-li-icon"/>
 		      First Note
 		      <a href="javascript:check('1');"></a>
-		      <a href="foo.html" data-theme="c">Edit</a>
+		      <a href="link" data-theme="c">Edit</a>
 		    </li>
 		    <li class='2'>
 		      <img src="jquery/images/check.png" class="ui-li-icon"/>
